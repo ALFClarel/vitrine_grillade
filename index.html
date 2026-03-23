@@ -40,6 +40,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
+  <!-- Normalisation responsive des images -->
+  <style>
+    .img-placeholder { width: 100%; height: 100%; overflow: hidden; display: block; }
+    .img-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* Hero : image centrée verticalement */
+    .hero { min-height: auto; padding: 80px 0 40px; display: flex; align-items: center; }
+    .hero__layout { align-items: center; gap: 2rem; width: 100%; }
+    .hero__visual { align-self: center; display: flex; align-items: center; justify-content: center; }
+    .img-placeholder--hero { height: 50vh; max-height: 480px; }
+    .img-placeholder--hero img { object-position: center center; }
+
+    @media (min-width: 1024px) {
+      .hero { min-height: calc(100vh - 80px); }
+      .hero__layout { height: 100%; align-items: center; }
+      .hero__visual { align-self: center; }
+    }
+
+    /* Section ambiance : tient sur l'écran */
+    .ambiance__strip { padding: 40px 0; }
+    .ambiance__container { align-items: center; gap: 2rem; }
+    .ambiance-carousel { height: 100%; }
+    .img-placeholder--ambiance { height: 45vh; max-height: 420px; }
+  </style>
 </head>
 <body>
 
@@ -159,21 +189,17 @@
             <div class="carousel__track" id="hero-track">
               <div class="carousel__slide" aria-label="Photo 1">
                 <div class="img-placeholder img-placeholder--hero">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                  <span>Ajoutez votre photo ici</span>
-                  <!-- Remplacer ce bloc par : <img src="votre-photo.jpg" alt="Poulet grillé Gilette Kwaye" loading="lazy" /> -->
+                  <img src="images/img1.jpg" alt="Poulet grillé Gilette Kwaye" loading="lazy"/>
                 </div>
               </div>
               <div class="carousel__slide" aria-label="Photo 2">
                 <div class="img-placeholder img-placeholder--hero">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                  <span>Ajoutez votre photo ici</span>
+                  <img src="images/img2.jpg" alt="Poulet grillé Gilette Kwaye" loading="lazy"/>
                 </div>
               </div>
               <div class="carousel__slide" aria-label="Photo 3">
                 <div class="img-placeholder img-placeholder--hero">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                  <span>Ajoutez votre photo ici</span>
+                  <img src="images/img3.jpg" alt="Poulet grillé Gilette Kwaye" loading="lazy"/>
                 </div>
               </div>
             </div>
@@ -239,9 +265,7 @@
           <div class="about__media">
             <div class="img-slot img-slot--portrait">
               <div class="img-placeholder">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                <span>Photo ambiance ou portrait</span>
-                <!-- Remplacer par : <img src="photo-ambiance.jpg" alt="Gilette en train de griller" loading="lazy" /> -->
+                <img src="images/img4.jpg" alt="Poulet grillé Gilette Kwaye" loading="lazy"/>
               </div>
               <div class="about__media-caption">
                 <em>"Depuis des années, on grille avec la même passion."</em>
@@ -269,9 +293,7 @@
             <div class="product--feature__media">
               <div class="img-slot img-slot--wide">
                 <div class="img-placeholder">
-                  <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                  <span>Photo poulet grillé</span>
-                  <!-- Remplacer par : <img src="poulet-grille.jpg" alt="Poulet grillé Gilette Kwaye" loading="lazy" /> -->
+                  <img src="images/img5.jpg" alt="Poulet grillé Gilette Kwaye" loading="lazy"/>
                 </div>
               </div>
             </div>
@@ -294,9 +316,8 @@
               <div class="product--secondary__media">
                 <div class="img-slot img-slot--square">
                   <div class="img-placeholder">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
                     <span>Photo porc grillé</span>
-                    <!-- Remplacer par : <img src="porc-grille.jpg" alt="Porc grillé" loading="lazy" /> -->
+                    <img src="images/img6.jpg" alt="Poulet grillé Gilette Kwaye" loading="lazy"/>
                   </div>
                 </div>
               </div>
@@ -316,19 +337,16 @@
               <div class="product--secondary__media">
                 <div class="img-slot img-slot--square">
                   <div class="img-placeholder">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                    <span>Photo assiette mixte</span>
-                    <!-- Remplacer par : <img src="assiette-mixte.jpg" alt="Assiette mixte grillades" loading="lazy" /> -->
+                    <img src="images/img7.jpg" alt="Poulet grillé Gilette Kwaye" loading="lazy"/>
                   </div>
                 </div>
               </div>
               <div class="product--secondary__body">
                 <span class="product__num">03</span>
-                <h3 class="product__title">Assiette Mixte</h3>
-                <p class="product__desc">Le meilleur des deux : poulet et porc grillés dans une assiette généreuse, avec nos garnitures fraîches. Idéal pour les grands appétits.</p>
+                <h3 class="product__title">Mixte</h3>
+                <p class="product__desc">L'un des meilleurs : poulet et porc grillés mais aussi brochettes, avec nos garnitures fraîches. Idéal pour les petits appétits.</p>
                 <ul class="product__tags" aria-label="Caractéristiques">
                   <li>Mixte poulet &amp; porc</li>
-                  <li>Accompagnement inclus</li>
                   <li>Format familial</li>
                 </ul>
               </div>
@@ -450,20 +468,17 @@
               <div class="carousel__track" id="ambiance-track">
                 <div class="carousel__slide">
                   <div class="img-placeholder img-placeholder--ambiance">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                    <span>Photo de la grillade</span>
+                    <img src="images/img8.jpg" alt="Poulet grillé Gilette Kwaye" loading="lazy"/>
                   </div>
                 </div>
                 <div class="carousel__slide">
                   <div class="img-placeholder img-placeholder--ambiance">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                    <span>Photo de la braise</span>
+                    <img src="images/img9.jpg" alt="Poulet grillé Gilette Kwaye" loading="lazy"/>
                   </div>
                 </div>
                 <div class="carousel__slide">
                   <div class="img-placeholder img-placeholder--ambiance">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                    <span>Photo de l'ambiance</span>
+                    <img src="images/img10.jpg" alt="Poulet grillé Gilette Kwaye" loading="lazy"/>
                   </div>
                 </div>
               </div>
@@ -579,7 +594,7 @@
                 </span>
                 <div>
                   <span class="contact__label">Email</span>
-                  <a href="mailto:pouletgilettekwaye@gmail.com" class="contact__value">pouletgilettekwaye@gmail.com</a>
+                  <a href="/cdn-cgi/l/email-protection#9cecf3e9f0f9e8fbf5f0f9e8e8f9f7ebfde5f9dcfbf1fdf5f0b2fff3f1" class="contact__value"><span class="__cf_email__" data-cfemail="364659435a5342515f5a534242535d41574f5376515b575f5a1855595b">[email&#160;protected]</span></a>
                 </div>
               </li>
               <li class="contact__item">
@@ -602,25 +617,18 @@
               Appeler : 06 93 31 29 78
             </a>
 
-            <!-- Carte stylisée sobre -->
-            <div class="contact__map" aria-label="Localisation : Ravine des Cabris, La Réunion" role="img">
-              <svg viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg" class="map-svg" aria-hidden="true">
-                <rect width="320" height="150" rx="8" fill="var(--map-bg)"/>
-                <line x1="0" y1="75" x2="320" y2="75" stroke="var(--map-road)" stroke-width="7"/>
-                <line x1="160" y1="0" x2="160" y2="150" stroke="var(--map-road)" stroke-width="5"/>
-                <line x1="0" y1="38" x2="190" y2="38" stroke="var(--map-road-sec)" stroke-width="3"/>
-                <line x1="95" y1="0" x2="245" y2="150" stroke="var(--map-road-sec)" stroke-width="2.5"/>
-                <circle cx="55" cy="28" r="18" fill="var(--map-green)" opacity="0.5"/>
-                <circle cx="268" cy="122" r="22" fill="var(--map-green)" opacity="0.4"/>
-                <text x="160" y="22" text-anchor="middle" font-size="9" fill="var(--map-label)" font-family="sans-serif">Ravine des Cabris</text>
-                <circle cx="160" cy="75" r="16" fill="var(--color-fire)" opacity="0.2"/>
-                <circle cx="160" cy="75" r="9" fill="var(--color-fire)" opacity="0.5"/>
-                <circle cx="160" cy="75" r="4.5" fill="var(--color-fire)"/>
-                <circle cx="160" cy="75" r="1.8" fill="var(--color-cream)"/>
-                <rect x="116" y="45" width="88" height="18" rx="4" fill="var(--color-fire)" opacity="0.9"/>
-                <text x="160" y="58" text-anchor="middle" font-size="8.5" fill="var(--color-cream)" font-family="sans-serif" font-weight="bold">Gilette Kwaye</text>
-                <text x="162" y="91" text-anchor="middle" font-size="7.5" fill="var(--color-amber)" font-family="sans-serif" opacity="0.8">120 chemin recherchant</text>
-              </svg>
+            <!-- Google Maps embed -->
+            <div class="contact__map" aria-label="Localisation : 120 Chemin Recherchant, Ravine des Cabris, La Réunion">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d500!2d55.48488907023196!3d-21.289734492059075!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1700000000000"
+                width="100%"
+                height="200"
+                style="border:0; border-radius: 8px; display:block;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Localisation Poulet Gilette Kwaye – 120 Chemin Recherchant, Ravine des Cabris"
+              ></iframe>
             </div>
           </div>
 
@@ -703,7 +711,7 @@
             </p>
             <p>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              <a href="mailto:pouletgilettekwaye@gmail.com">pouletgilettekwaye@gmail.com</a>
+              <a href="/cdn-cgi/l/email-protection#84f4ebf1e8e1f0e3ede8e1f0f0e1eff3e5fde1c4e3e9e5ede8aae7ebe9"><span class="__cf_email__" data-cfemail="04746b71686170636d68617070616f73657d61446369656d682a676b69">[email&#160;protected]</span></a>
             </p>
           </address>
         </div>
@@ -717,10 +725,106 @@
     </div>
   </footer>
 
-  <button class="back-to-top" id="back-to-top" aria-label="Retour en haut de la page" aria-hidden="true">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+  <button class="back-to-top" id="back-to-top-btn" aria-label="Retour en haut de page" title="Retour en haut">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
 
-  <script src="script.js"></script>
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Theme toggle
+    const html = document.documentElement;
+    const themeBtn = document.getElementById('theme-toggle');
+    const saved = localStorage.getItem('theme');
+    if (saved) html.setAttribute('data-theme', saved);
+    themeBtn.addEventListener('click', () => {
+      const t = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', t);
+      localStorage.setItem('theme', t);
+    });
+
+    // Burger menu
+    const burger = document.getElementById('burger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    burger.addEventListener('click', () => {
+      const open = burger.getAttribute('aria-expanded') === 'true';
+      burger.setAttribute('aria-expanded', String(!open));
+      mobileMenu.setAttribute('aria-hidden', String(open));
+      mobileMenu.classList.toggle('is-open', !open);
+      burger.classList.toggle('is-active', !open);
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      burger.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      mobileMenu.classList.remove('is-open');
+      burger.classList.remove('is-active');
+    }));
+
+    // Scroll : header + back-to-top
+    const header = document.getElementById('header');
+    const btt = document.getElementById('back-to-top-btn');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('header--scrolled', window.scrollY > 60);
+      btt.classList.toggle('is-visible', window.scrollY > 400);
+    }, { passive: true });
+    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal, .reveal-item');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+
+    // Carousel
+    function initCarousel(trackId, prevId, nextId, dotsId) {
+      const track = document.getElementById(trackId);
+      const slides = track ? track.querySelectorAll('.carousel__slide') : [];
+      if (!slides.length) return;
+      let cur = 0;
+      const dotsContainer = document.getElementById(dotsId);
+      slides.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.setAttribute('role', 'tab');
+        d.setAttribute('aria-label', 'Photo ' + (i + 1));
+        d.className = 'carousel__dot' + (i === 0 ? ' is-active' : '');
+        d.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(d);
+      });
+      const dots = dotsContainer.querySelectorAll('.carousel__dot');
+      function goTo(n) {
+        cur = (n + slides.length) % slides.length;
+        track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+        dots.forEach((d, i) => d.classList.toggle('is-active', i === cur));
+      }
+      document.getElementById(prevId).addEventListener('click', () => goTo(cur - 1));
+      document.getElementById(nextId).addEventListener('click', () => goTo(cur + 1));
+      setInterval(() => goTo(cur + 1), 4500);
+    }
+    initCarousel('hero-track', 'hero-prev', 'hero-next', 'hero-dots');
+    initCarousel('ambiance-track', 'ambiance-prev', 'ambiance-next', 'ambiance-dots');
+
+    // Formulaire
+    const form = document.getElementById('contact-form');
+    if (form) {
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        let ok = true;
+        [['form-name','error-name'],['form-phone','error-phone'],['form-message','error-message']].forEach(([id, errId]) => {
+          const el = document.getElementById(id);
+          const err = document.getElementById(errId);
+          if (!el.value.trim()) { err.textContent = 'Ce champ est requis.'; ok = false; }
+          else { err.textContent = ''; }
+        });
+        if (ok) {
+          document.getElementById('submit-btn').disabled = true;
+          const succ = document.getElementById('form-success');
+          succ.removeAttribute('aria-hidden');
+          succ.style.display = 'flex';
+          form.reset();
+        }
+      });
+    }
+  </script>
 </body>
 </html>
