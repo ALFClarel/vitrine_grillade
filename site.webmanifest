@@ -1,0 +1,19 @@
+{
+  "name": "Poulet Gilette Kwaye",
+  "short_name": "Gilette Kwaye",
+  "description": "Poulet, porc et brochettes grillés à la Ravine des Cabris, Saint-Pierre, La Réunion.",
+  "lang": "fr-RE",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fffaf3",
+  "theme_color": "#7c2d12",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
