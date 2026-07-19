@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Poulet Gilette Kwaye">
+  <rect width="64" height="64" rx="14" fill="#7c2d12"/>
+  <path d="M36 7c3 12-8 14-5 25 2-5 7-8 12-12 5 10 10 15 10 24 0 12-9 18-21 18S11 55 11 43c0-9 6-17 16-26-1 10 3 13 6 16-1-9 7-15 3-26Z" fill="#fb923c"/>
+  <path d="M32 57c-7 0-12-4-12-10 0-5 3-10 9-16 0 7 3 9 5 11 0-6 4-9 6-13 3 7 5 11 5 17 0 7-5 11-13 11Z" fill="#fef3c7"/>
+</svg>

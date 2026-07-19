@@ -1,0 +1,54 @@
+# Configuration d’amorçage HTTP pour obtenir ensuite le certificat TLS.
+# Ce bloc ne concerne que pouletgillettekwaye.re et n’utilise aucun conteneur.
+server {
+    listen 80;
+    listen [::]:80;
+    server_name pouletgillettekwaye.re www.pouletgillettekwaye.re;
+
+    root /var/www/pouletgillettekwaye.re/current;
+    index index.html;
+    charset utf-8;
+
+    access_log /var/log/nginx/pouletgillettekwaye.re.access.log;
+    error_log  /var/log/nginx/pouletgillettekwaye.re.error.log warn;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    error_page 404 /404.html;
+    location = /404.html {
+        internal;
+    }
+
+    location ~* \.(?:avif|webp)$ {
+        types {
+            image/avif avif;
+            image/webp webp;
+        }
+        try_files $uri =404;
+        expires 1y;
+    }
+
+    location ~* \.(?:svg|css|js)$ {
+        try_files $uri =404;
+        expires 1y;
+    }
+
+    location = /site.webmanifest {
+        default_type application/manifest+json;
+        try_files $uri =404;
+        expires -1;
+    }
+
+    location ~* \.(?:html|xml|txt|webmanifest)$ {
+        try_files $uri =404;
+        expires -1;
+    }
+
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header Permissions-Policy "camera=(), microphone=(), geolocation=()" always;
+    add_header Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'self'" always;
+}

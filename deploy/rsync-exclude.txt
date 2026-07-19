@@ -1,0 +1,7 @@
+.git/
+.agents/
+deploy/
+images/*.JPG
+images/*.jpg
+Thumbs.db
+.DS_Store
